@@ -24,14 +24,97 @@ The organization faced challenges in:
 ## New Skills Demonstrated
 The following Excel features were incorporated:
 
--	Search Bar 
--	Button.
+-	Search Bar by simply typing the employee name.
+-	Button to enhance interativity.
 
 ## Data Sourcing
 
-The data used is made up of 1 csv files. Imported the files into Excel for analysis and Visualization. 
+The data used was collected from Bash Logistics, It's made up of 1 csv files. Imported the files into Excel for analysis and Visualization. 
 
 ## Steps Followed
 
 ### Step 1: Load the Data
-Load data into Powerbi desktop from a folder containing 5 csv files.
+Import data into Excel from the desktop, a csv files.
+
+### Step 2: Data Transformation/Cleaning
+
+Data was efficiently cleaned and transformed with Power query Editor of Excel.
+
+- Power Querry Editor automatically cleaned the data type.
+- Manually Standardized column names for clarity (e.g., “Employee_Status,” “Job_Level,” “Department”). 
+- Transform the csv file as needed to ensure it is in the appropriate usage by creating new calculated column such as:
+
+     Classified employees into “In_Service” and “Retrenched” groups, using the below formula -
+
+            **= Table.AddColumn(#"Age_range changed", "Employee_review", each if [Age_range] = "Above 63" then "Retrenched" else "In_service")**
+
+     Created an age group segmentation (20–30, 31–41, 42–52, 53–63, and Above 63), using the below formula - 
+
+            **= Table.AddColumn(#"Changed Type", "Age_range",
+                  each if [Age] <= 30 then "20 - 30"
+                  else if [Age] <= 41 then "31 - 41"
+                  else if [Age] <= 52 then "42 - 52"
+                  else if [Age] <= 63 then "53 - 63"
+                  else "Above 63")**
+
+  IMAGE -
+  
+  ### Step 3: Data Modelling
+
+Loaded and modeled the dataset in Excel Power Query. 
+Querry depended on a workbook
+Defined relationships between key HR fields for interactive filtering.
+
+IMAGE - QUERRY DEPENDENCY
+
+### Step 5: Analytics Visualization
+
+1. Utilized Pivot Tables to analyze Key Performace Indicators (KPI) to facilitate swift insights.
+2. Leverage OFFSET functions within selected Pivot Tables, to enable to visualize certain charts.
+           ** =INDEX(departments, 0,0)**
+3. The report comprises 12 reports: 
+- Total Employee                      |      - Employee by Location and Distribution Centre
+- Gender Ratio                        |      - Employee by Department and Designation
+- Employee Status Segmentation        |      - Job Level of Employee
+- Religion Segmentation               |      - Count of Employee by Age Range
+- Employee Status                     |      - Employee Review Segmentation
+  
+You can interact with the report [here]
+4. Use Excel Funtions to create interactive Search button Funtion in the Dashoard.
+
+- Count if an entry is in the search bar at the dashboard using this formular
+            ** =COUNTA(dashboard!F3)**
+- Copy and paste the headings in the HRdata Sheet to Know the columns needed for the search
+- Use Pivot Table to input the colummns needed for the search
+- Copy and Paste the Column headers from the Pivot Table into another cells
+- Write a formular to show the Pivot Table Header if Entry is made in the Dashboard search bar
+            ** =IF($B$2=1, L5, "")**
+- Write Excel funtion to show the details of the name entry in the dashboard search bar
+            ** =IFERROR(VLOOKUP(dashboard!$F$3,searchrange,MATCH(N6,$C$5:$L$5, 0), 0), "")**
+- Dashboard Statement                      |    - Employee Information
+            ** =IF(N6="", 0, "yes")**      |            ** =IF(N7="",0, "yes")**
+- Compare                                  |    - Display
+            ** =O10=O11**                  |            ** =IF(O12=TRUE, "", "Employee records not found, retry")**
+5. A switched button was created to quickly move from Analysis to Dashboard to Cleaned data and Vice Versa.
+
+## Final dashboard and other Necessary Visuals.
+
+
+
+
+
+            
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
