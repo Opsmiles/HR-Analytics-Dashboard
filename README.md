@@ -114,9 +114,10 @@ You can interact with the report [here]
      7. Displayed Employee Details Matching the Search Input
 
           Used VLOOKUP combined with MATCH to dynamically fetch and display employee details based on the search query:
+        
                    ** =IFERROR(VLOOKUP(Dashboard!$F$3, searchrange, MATCH(N6, $C$5:$L$5, 0), 0), "")**
 
-     8. Created Dashboard Status Indicators
+     9. Created Dashboard Status Indicators
 
           Used simple logic checks to verify whether values exist before showing results:
 
@@ -124,12 +125,12 @@ You can interact with the report [here]
 
                                    =IF(N7="",0,"yes")**
 
-     9. Compared Status Values for Validation
+     10. Compared Status Values for Validation
 
           Added a comparison formula to check whether employee details exist:
                                    ** =O10=O11 **
 
-     10. Displayed Error Message if No Record is Found
+     11. Displayed Error Message if No Record is Found
 
           Provided user-friendly feedback for invalid or unmatched search entries:
                     ** =IF(O12=TRUE, "", "Employee records not found, retry")**
