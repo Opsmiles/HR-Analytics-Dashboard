@@ -59,7 +59,7 @@ Data was efficiently cleaned and transformed with Power query Editor of Excel.
 
   IMAGE -
   
-  ### Step 3: Data Modelling
+### Step 3: Data Modelling
 
 Loaded and modeled the dataset in Excel Power Query. 
 Querry depended on a workbook
@@ -67,44 +67,130 @@ Defined relationships between key HR fields for interactive filtering.
 
 IMAGE - QUERRY DEPENDENCY
 
-### Step 5: Analytics Visualization
+### Step 4: Analytics Visualization
 
 1. Utilized Pivot Tables to analyze Key Performace Indicators (KPI) to facilitate swift insights.
 2. Leverage OFFSET functions within selected Pivot Tables, to enable to visualize certain charts.
            ** =INDEX(departments, 0,0)**
-3. The report comprises 12 reports: 
-- Total Employee                      |      - Employee by Location and Distribution Centre
-- Gender Ratio                        |      - Employee by Department and Designation
-- Employee Status Segmentation        |      - Job Level of Employee
-- Religion Segmentation               |      - Count of Employee by Age Range
-- Employee Status                     |      - Employee Review Segmentation
+3. The Pivot Tables comprises 12 reports:
+
+| Pivot Tables                        | Pivot Tables                                    |
+| ------                              | :----                                           |
+| Total Employee                      |    Employee by Location and Distribution Centre |  
+| Gender Ratio                        |    Employee by Department and Designation       |
+| Employee Status Segmentation        |    Job Level of Employee                        |
+| Religion Segmentation               |    Count of Employee by Age Range               |
+| Employee Status                     |    Employee Review Segmentation                 |
   
 You can interact with the report [here]
-4. Use Excel Funtions to create interactive Search button Funtion in the Dashoard.
 
-- Count if an entry is in the search bar at the dashboard using this formular
-            ** =COUNTA(dashboard!F3)**
-- Copy and paste the headings in the HRdata Sheet to Know the columns needed for the search
-- Use Pivot Table to input the colummns needed for the search
-- Copy and Paste the Column headers from the Pivot Table into another cells
-- Write a formular to show the Pivot Table Header if Entry is made in the Dashboard search bar
-            ** =IF($B$2=1, L5, "")**
-- Write Excel funtion to show the details of the name entry in the dashboard search bar
-            ** =IFERROR(VLOOKUP(dashboard!$F$3,searchrange,MATCH(N6,$C$5:$L$5, 0), 0), "")**
-- Dashboard Statement                      |    - Employee Information
-            ** =IF(N6="", 0, "yes")**      |            ** =IF(N7="",0, "yes")**
-- Compare                                  |    - Display
-            ** =O10=O11**                  |            ** =IF(O12=TRUE, "", "Employee records not found, retry")**
+4. Steps Taken to Create the Interactive Search Bar in the Dashboard.
+     1. Created a Search Input Field
+
+          Designed a dedicated search bar in the dashboard for users to type an employee’s name.
+
+     2. Applied Excel Function to Detect Search Input
+
+          Used the formula below to count when an entry is made in the search field:
+                              ** =COUNTA(Dashboard!F3)**
+
+     3. Identified Required Data Columns
+
+          Copied and reviewed column headers from the HRdata sheet to determine the fields needed for the search output.
+
+     4. Built a Pivot Table for Search Data Structure
+
+          Created a Pivot Table and selected only the columns required for the search results.
+
+     5. Re-created Search Headers for Display
+
+          Copied the Pivot Table headers into a new cell range to serve as the structured output layout.
+
+     6. Displayed Search Headers When Input Is Detected
+
+          Used an IF formula to show the selected column header only when a name is entered in the search bar:
+                                   ** =IF($B$2=1, L5, "")**
+
+     7. Displayed Employee Details Matching the Search Input
+
+          Used VLOOKUP combined with MATCH to dynamically fetch and display employee details based on the search query:
+                   ** =IFERROR(VLOOKUP(Dashboard!$F$3, searchrange, MATCH(N6, $C$5:$L$5, 0), 0), "")**
+
+     8. Created Dashboard Status Indicators
+
+          Used simple logic checks to verify whether values exist before showing results:
+
+                                  ** =IF(N6="",0,"yes")
+
+                                   =IF(N7="",0,"yes")**
+
+     9. Compared Status Values for Validation
+
+          Added a comparison formula to check whether employee details exist:
+                                   ** =O10=O11 **
+
+     10. Displayed Error Message if No Record is Found
+
+          Provided user-friendly feedback for invalid or unmatched search entries:
+                    ** =IF(O12=TRUE, "", "Employee records not found, retry")**
+ 
 5. A switched button was created to quickly move from Analysis to Dashboard to Cleaned data and Vice Versa.
 
 ## Final dashboard and other Necessary Visuals.
 
+The final HR Dashboard provides a clear, interactive visualization of the organization’s workforce. It highlights employee status, demographics, departmental structure, and job-level distribution, while offering instant access to individual employee details through the interactive search feature.
 
+### Key Facts & Figures Identified 
 
+- The organization has 151 employees, with 141 active and 10 inactive staff requiring payroll review.
 
+- The workforce is 78% male and 22% female, showing a significant gender imbalance.
 
-            
+- 60% of employees are married, while singles and divorced staff make up 38% and 3% respectively.
 
+- A majority of employees identify as Muslim (93), followed by Christian (29) and Hindu (17).
+
+- Job levels are dominated by Officers (71) and Staff (63), with only a few senior executives and top-level leaders.
+
+- 16% of employees are nearing retirement age, indicating an urgent need for succession planning.
+
+ ## Conclusion & Recommendation
+ 
+The HR Analytics Dashboard effectively addresses the organization’s HR challenges by providing a complete overview of workforce composition and employee status. With dynamic insights and real-time employee lookup, the dashboard strengthens HR decision-making and supports effective resource planning.
+
+Based on insights generated:
+
+1. Workforce Retirement Planning
+
+16% of employees are close to retirement. Succession planning and recruitment activities should begin immediately.
+
+2. Payroll Optimization
+
+10 inactive employees should be reviewed and potentially removed from payroll to reduce overhead costs.
+
+3. Improve Gender Balance
+
+The workforce is predominantly male; HR should prioritize gender diversity in future hiring cycles.
+
+4. Departmental Realignment
+
+Some departments are overloaded while others are light. Workload redistribution or recruitment may be required.
+
+5. Employee Engagement Strategy
+
+Introduce employee satisfaction surveys and performance metrics to identify disengagement early.
+
+6. Expand HR Reporting Automation
+
+Future upgrades could include:
+
+Automatic monthly data refresh
+
+HRMS integration
+
+Predictive analytics for turnover and workforce planning.
+
+Thank You.
 
 
 
