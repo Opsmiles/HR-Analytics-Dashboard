@@ -57,7 +57,7 @@ Data was efficiently cleaned and transformed with Power query Editor of Excel.
                   else if [Age] <= 63 then "53 - 63"
                   else "Above 63")**
 
-  IMAGE -
+  ![](hrprocess.png)
   
 ### Step 3: Data Modelling
 
@@ -65,7 +65,7 @@ Loaded and modeled the dataset in Excel Power Query.
 Querry depended on a workbook
 Defined relationships between key HR fields for interactive filtering.
 
-IMAGE - QUERRY DEPENDENCY
+![](QUERRY.png)
 
 ### Step 4: Analytics Visualization
 
@@ -85,6 +85,9 @@ IMAGE - QUERRY DEPENDENCY
 You can interact with the report [here]
 
 4. Steps Taken to Create the Interactive Search Bar in the Dashboard.
+
+![](searchbar.png)
+
      1. Created a Search Input Field
 
           Designed a dedicated search bar in the dashboard for users to type an employee’s name.
@@ -92,6 +95,7 @@ You can interact with the report [here]
      2. Applied Excel Function to Detect Search Input
 
           Used the formula below to count when an entry is made in the search field:
+          
                               ** =COUNTA(Dashboard!F3)**
 
      3. Identified Required Data Columns
@@ -109,6 +113,7 @@ You can interact with the report [here]
      6. Displayed Search Headers When Input Is Detected
 
           Used an IF formula to show the selected column header only when a name is entered in the search bar:
+          
                                    ** =IF($B$2=1, L5, "")**
 
      7. Displayed Employee Details Matching the Search Input
@@ -128,16 +133,20 @@ You can interact with the report [here]
      10. Compared Status Values for Validation
 
           Added a comparison formula to check whether employee details exist:
+          
                                    ** =O10=O11 **
 
      11. Displayed Error Message if No Record is Found
 
           Provided user-friendly feedback for invalid or unmatched search entries:
+         
                     ** =IF(O12=TRUE, "", "Employee records not found, retry")**
  
-5. A switched button was created to quickly move from Analysis to Dashboard to Cleaned data and Vice Versa.
+6. A switched button was created to quickly move from Analysis to Dashboard to Cleaned data and Vice Versa.
 
 ## Final dashboard and other Necessary Visuals.
+
+![](HRdashboard.jpg)
 
 The final HR Dashboard provides a clear, interactive visualization of the organization’s workforce. It highlights employee status, demographics, departmental structure, and job-level distribution, while offering instant access to individual employee details through the interactive search feature.
 
@@ -152,6 +161,8 @@ The final HR Dashboard provides a clear, interactive visualization of the organi
 - A majority of employees identify as Muslim (93), followed by Christian (29) and Hindu (17).
 
 - Job levels are dominated by Officers (71) and Staff (63), with only a few senior executives and top-level leaders.
+  
+- The organization operates with a strong emphasis on production output and revenue generation activities with department distribution clearly shows that Production (60 employees) and Sales (55 employees). However, the other departments are significantly understaffed compared to these core units.
 
 - 16% of employees are nearing retirement age, indicating an urgent need for succession planning.
 
@@ -163,33 +174,33 @@ Based on insights generated:
 
 1. Workforce Retirement Planning
 
-16% of employees are close to retirement. Succession planning and recruitment activities should begin immediately.
+     16% of employees are close to retirement. Succession planning and recruitment activities should begin immediately.
 
 2. Payroll Optimization
 
-10 inactive employees should be reviewed and potentially removed from payroll to reduce overhead costs.
+     10 inactive employees should be reviewed and potentially removed from payroll to reduce overhead costs.
 
 3. Improve Gender Balance
 
-The workforce is predominantly male; HR should prioritize gender diversity in future hiring cycles.
+     The workforce is predominantly male; HR should prioritize gender diversity in future hiring cycles.
 
 4. Departmental Realignment
 
-Some departments are overloaded while others are light. Workload redistribution or recruitment may be required.
+     Some departments are overloaded while others are light. Workload redistribution or recruitment may be required.
 
 5. Employee Engagement Strategy
 
-Introduce employee satisfaction surveys and performance metrics to identify disengagement early.
+     Introduce employee satisfaction surveys and performance metrics to identify disengagement early.
 
 6. Expand HR Reporting Automation
 
-Future upgrades could include:
+- Future upgrades could include:
 
-Automatic monthly data refresh
+- Automatic monthly data refresh
 
-HRMS integration
+- HRMS integration
 
-Predictive analytics for turnover and workforce planning.
+- Predictive analytics for turnover and workforce planning.
 
 Thank You.
 
